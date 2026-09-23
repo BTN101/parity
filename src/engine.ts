@@ -63,6 +63,9 @@ export interface Report {
   source: string;
   modernLabel: string;
   dialect: string;
+  /** Contract field names, in record order. */
+  inputs: string[];
+  outputs: string[];
   generatedAt: string;
   seed: number;
   inputsRun: number;
@@ -303,7 +306,7 @@ export function check(dir: string, opts: CheckOptions = {}): Report {
     verdict === "EQUIVALENT"
       ? `No divergence in ${n.toLocaleString("en-US")} inputs. ${coverage.statements.hit}/${coverage.statements.total} statements and ${coverage.decisions.bothWays}/${coverage.decisions.total} decisions exercised both ways.`
       : verdict === "EQUIVALENT_WITH_DECLARED_CHANGES"
-        ? `Every remaining difference is a recorded, intentional change (${roots.length}). Nothing undeclared in ${n.toLocaleString("en-US")} inputs.`
+        ? `${roots.length} accepted change${roots.length === 1 ? "" : "s"}, recorded in the ledger. Nothing undeclared in ${n.toLocaleString("en-US")} inputs.`
         : `${blocking.length} undecided or unfixed behavioural difference${blocking.length === 1 ? "" : "s"} across ${divergentInputs.toLocaleString("en-US")} of ${n.toLocaleString("en-US")} inputs.`;
 
   const report: Report = {
@@ -311,6 +314,8 @@ export function check(dir: string, opts: CheckOptions = {}): Report {
     source: L.contract.legacy.source,
     modernLabel: L.contract.modern.label ?? L.contract.modern.run,
     dialect: L.contract.legacy.dialect,
+    inputs: L.contract.inputs.map((i) => i.name),
+    outputs: L.contract.outputs,
     generatedAt: new Date().toISOString(),
     seed,
     inputsRun: n,

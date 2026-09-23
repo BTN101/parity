@@ -20,6 +20,8 @@ export interface Coverage {
   statements: { hit: number; total: number };
   decisions: { bothWays: number; total: number; oneWay: number[] };
   missedLines: number[];
+  /** Every PROCEDURE DIVISION statement line, for drawing coverage. */
+  statementLines: number[];
   sampled: number;
 }
 
@@ -68,6 +70,7 @@ export function measureCoverage(prog: CobolProgram, tracedBin: string, records: 
     statements: { hit: statementLines.length - missedLines.length, total: statementLines.length },
     decisions: { bothWays: prog.ifLines.length - oneWay.length, total: prog.ifLines.length, oneWay },
     missedLines,
+    statementLines,
     sampled: records.length,
   };
 }

@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #f2f1ee;
+  --panel: #ffffff;
+  --ink: #161616;
+  --ink-2: #393939;
+  --muted: #6f6f6f;
+  --line: #dcdad4;
+  --line-2: #e8e6e1;
+  --blue: #0f62fe;
+  --red: #da1e28;
+  --red-bg: #fff1f1;
+  --green: #198038;
+  --green-bg: #defbe6;
+  --amber: #8e6a00;
+  --amber-bg: #fcf4d6;
+  /* The legacy side: a green-screen terminal. */
+  --crt: #07110a;
+  --crt-2: #0d1d12;
+  --phosphor: #5cff8a;
+  --phosphor-dim: #2f8a4b;
+  --phosphor-hi: #d4ffe0;
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.mono {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+.crt {
+  background: radial-gradient(ellipse at 50% 0%, var(--crt-2), var(--crt) 70%);
+  color: var(--phosphor);
+  text-shadow: 0 0 6px rgba(92, 255, 138, 0.35);
+}
+.crt-scan {
+  background-image: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.18) 0 1px, transparent 1px 3px);
+}
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-thumb { background: #c6c4bd; border-radius: 4px; }
+.crt *::-webkit-scrollbar-thumb { background: #1d3b27; }
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in { animation: fade 240ms ease-out; }
+  @keyframes fade { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+}

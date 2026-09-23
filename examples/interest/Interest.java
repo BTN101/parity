@@ -32,14 +32,19 @@ public class Interest {
             BigDecimal newBal = balance.add(interest).subtract(fee).setScale(2, RoundingMode.DOWN);
 
             out.append(fmtSigned(interest, 5)).append(',')
-               .append(fmt(fee, 3)).append(',')
-               .append(fmt(newBal, 7)).append('\n');
+               .append(fmtNum(fee, 3)).append(',')
+               .append(fmtNum(newBal, 7)).append('\n');
         }
         System.out.print(out);
     }
     static String fmtSigned(BigDecimal v, int intDigits) {
         String s = fmt(v.abs(), intDigits);
         return (v.signum() < 0 ? "-" : " ") + s;
+    }
+    // Unsigned output columns: a negative still prints its sign, ahead of the
+    // zero padding — the modern system has no reason to hide a negative.
+    static String fmtNum(BigDecimal v, int intDigits) {
+        return (v.signum() < 0 ? "-" : "") + fmt(v.abs(), intDigits);
     }
     static String fmt(BigDecimal v, int intDigits) {
         String p = v.setScale(2, RoundingMode.DOWN).toPlainString();
