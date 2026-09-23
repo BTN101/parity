@@ -1,0 +1,16 @@
+{
+  "name": "interest-faithful",
+  "legacy": { "source": "../interest.cbl", "dialect": "ibm" },
+  "modern": {
+    "label": "Java 21 (after repair loop, all findings preserved)",
+    "build": "javac -d .parity/build/modern ../../../java/Pic.java InterestFaithful.java",
+    "run": "java -cp .parity/build/modern InterestFaithful"
+  },
+  "inputs": [
+    { "name": "F-TYPE", "values": ["S", "P", "C"] },
+    { "name": "BALANCE" },
+    { "name": "RATE" },
+    { "name": "DAYS" }
+  ],
+  "outputs": ["O-INT", "O-FEE", "O-NEW"]
+}

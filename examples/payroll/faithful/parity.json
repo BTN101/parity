@@ -1,0 +1,15 @@
+{
+  "name": "payroll-faithful",
+  "legacy": { "source": "../payroll.cbl", "dialect": "ibm" },
+  "modern": {
+    "label": "Java 21 (after repair loop, all findings preserved)",
+    "build": "javac -d .parity/build/modern ../../../java/Pic.java PayrollFaithful.java",
+    "run": "java -cp .parity/build/modern PayrollFaithful"
+  },
+  "inputs": [
+    { "name": "F-CODE", "values": ["S", "M"] },
+    { "name": "HOURS" },
+    { "name": "RATE" }
+  ],
+  "outputs": ["O-GROSS", "O-TAX", "O-NET"]
+}

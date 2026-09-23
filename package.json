@@ -1,0 +1,25 @@
+{
+  "name": "parity",
+  "version": "0.1.0",
+  "description": "Behavioural equivalence for AI-modernised COBOL. Runs legacy and modern code side by side, finds every input where they disagree, and turns each difference into a recorded decision.",
+  "type": "module",
+  "bin": {
+    "parity": "src/cli.ts"
+  },
+  "scripts": {
+    "parity": "tsx src/cli.ts",
+    "mcp": "tsx src/mcp.ts",
+    "selftest": "tsx test/selftest.ts",
+    "e2e": "tsx test/mcp-e2e.ts"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

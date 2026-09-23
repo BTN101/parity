@@ -1,0 +1,15 @@
+{
+  "name": "payroll",
+  "legacy": { "source": "payroll.cbl", "dialect": "ibm" },
+  "modern": {
+    "label": "Java 21 (HALF_EVEN money rounding)",
+    "build": "javac -d .parity/build/modern Payroll.java",
+    "run": "java -cp .parity/build/modern Payroll"
+  },
+  "inputs": [
+    { "name": "F-CODE", "values": ["S", "M"] },
+    { "name": "HOURS" },
+    { "name": "RATE" }
+  ],
+  "outputs": ["O-GROSS", "O-TAX", "O-NET"]
+}

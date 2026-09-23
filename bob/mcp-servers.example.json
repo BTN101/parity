@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "parity": {
+      "command": "npx",
+      "args": ["tsx", "/ABSOLUTE/PATH/TO/parity/src/mcp.ts"]
+    }
+  }
+}
