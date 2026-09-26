@@ -6,6 +6,8 @@ It plugs into IBM Bob as an MCP server, so the loop — translate, check, decide
 
 Built for the IBM Bob 2.0 Hackathon.
 
+**Hackathon timeline.** I prototyped Parity's core engine before the IBM Bob 2.0 Hackathon (commits from 23 Sept). During the event (25–27 Sept) I used IBM Bob to translate, check, repair and certify COBOL through Parity. The Bob sessions are in `bob_sessions/` and the rehearsal run is in `examples/bob-rehearsal/`.
+
 ---
 
 ## The problem
