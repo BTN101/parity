@@ -14,6 +14,7 @@ import { decide, type Decision } from "./ledger.js";
 import { loadContract } from "./contract.js";
 import { parseCobol, storageOf } from "./cobol/parse.js";
 import { buildDomains } from "./gen.js";
+import { branchNote } from "./cobol/branches.js";
 import { describePic } from "./cobol/pic.js";
 
 const [cmd, dirArg, ...rest] = process.argv.slice(2);
@@ -44,7 +45,7 @@ try {
       console.log(`\n${prog.programId} — ${prog.statements.length} statements, ${prog.ifLines.length} decisions\n`);
       console.log("Inputs (domain from PICTURE, edges from the code):");
       for (const d of domains) {
-        const edges = d.values.length ? `values ${d.values.join(" / ")}` : d.harvested.length ? `compared against → tests ${d.harvested.join(", ")}` : "";
+        const edges = d.values.length ? branchNote(prog, d.name, d.values) : d.harvested.length ? `compared against → tests ${d.harvested.join(", ")}` : "";
         console.log(`  ${d.name.padEnd(10)} PIC ${d.spec.raw.padEnd(10)} ${describePic(d.spec)}${edges ? `  ·  ${edges}` : ""}`);
       }
       console.log("\nOutputs (classified against the field that stores them):");

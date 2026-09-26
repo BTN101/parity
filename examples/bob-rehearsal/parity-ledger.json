@@ -1,0 +1,53 @@
+{
+  "program": "demo",
+  "entries": {
+    "O-INT:format": {
+      "decision": "preserve",
+      "rationale": "Downstream settlement files are fixed-width; outputs must be zero-padded exactly like the COBOL fields.",
+      "decidedAt": "2026-09-23T15:00:52.586Z",
+      "decidedBy": "Head of Retail Finance"
+    },
+    "O-FEE:format": {
+      "decision": "preserve",
+      "rationale": "Downstream settlement files are fixed-width; outputs must be zero-padded exactly like the COBOL fields.",
+      "decidedAt": "2026-09-23T15:00:54.980Z",
+      "decidedBy": "Head of Retail Finance"
+    },
+    "O-NEW:format": {
+      "decision": "preserve",
+      "rationale": "Downstream settlement files are fixed-width; outputs must be zero-padded exactly like the COBOL fields.",
+      "decidedAt": "2026-09-23T15:00:57.513Z",
+      "decidedBy": "Head of Retail Finance"
+    },
+    "O-FEE:value": {
+      "decision": "preserve",
+      "rationale": "Translation bug: the COBOL only treats F-TYPE P specially; every other type including C uses the balance-based fee formula. The C-type flat-fee rule must be removed.",
+      "decidedAt": "2026-09-23T15:00:58.284Z",
+      "decidedBy": "Head of Retail Finance"
+    },
+    "O-FEE:rounding": {
+      "decision": "preserve",
+      "rationale": "Fees must match the legacy system to the cent.",
+      "decidedAt": "2026-09-23T15:00:59.767Z",
+      "decidedBy": "Head of Retail Finance"
+    },
+    "DAYS:input-overflow": {
+      "decision": "accept",
+      "rationale": "Out-of-range DAYS values are invalid input that upstream validation rejects; reproducing the legacy wraparound has no business value.",
+      "decidedAt": "2026-09-23T15:00:59.768Z",
+      "decidedBy": "Head of Retail Finance"
+    },
+    "DAYS:input-sign-loss": {
+      "decision": "accept",
+      "rationale": "Out-of-range DAYS values are invalid input that upstream validation rejects; reproducing the legacy wraparound has no business value.",
+      "decidedAt": "2026-09-23T15:00:59.768Z",
+      "decidedBy": "Head of Retail Finance"
+    },
+    "RATE:input-sign-loss": {
+      "decision": "accept",
+      "rationale": "Out-of-range RATE values are invalid input that upstream validation rejects; reproducing the legacy wraparound has no business value.",
+      "decidedAt": "2026-09-23T15:00:59.768Z",
+      "decidedBy": "Head of Retail Finance"
+    }
+  }
+}

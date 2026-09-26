@@ -34,6 +34,7 @@ import { decide, type Decision } from "./ledger.js";
 import { loadContract } from "./contract.js";
 import { parseCobol, storageOf } from "./cobol/parse.js";
 import { buildDomains } from "./gen.js";
+import { branchNote } from "./cobol/branches.js";
 import { describePic } from "./cobol/pic.js";
 
 const text = (t: string, isError = false): CallToolResult => ({ content: [{ type: "text", text: t }], isError });
@@ -158,7 +159,7 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
           lines.push(
             `  ${d.name} PIC ${d.spec.raw} — ${describePic(d.spec)}` +
               (d.harvested.length ? `; code compares it against edges ${d.harvested.join(", ")}` : "") +
-              (d.values.length ? `; values ${d.values.join(", ")}` : ""),
+              (d.values.length ? `; ${branchNote(prog, d.name, d.values)}` : ""),
           );
         }
         lines.push("", "Outputs and the fields that store them (these decide sign and overflow behaviour):");
