@@ -1,6 +1,6 @@
-import Console from "@/components/Console";
+import App from "@/components/App";
 import { SCENARIOS } from "@/lib/data";
 
 export default function Page() {
-  return <Console scenarios={SCENARIOS} />;
+  return <App samples={SCENARIOS} />;
 }

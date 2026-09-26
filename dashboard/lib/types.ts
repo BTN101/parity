@@ -53,7 +53,7 @@ export interface Report {
 export interface Scenario {
   id: string;
   program: string;
-  stage: "first-draft" | "after-repair";
+  stage: "first-draft" | "after-repair" | "uploaded";
   stageLabel: string;
   report: Report;
   source: string;

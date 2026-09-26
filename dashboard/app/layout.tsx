@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Parity — behavioural equivalence for AI-modernised COBOL",
+  title: "Parity · COBOL migration review",
   description:
     "Runs legacy COBOL and its AI translation side by side, finds every input where they disagree, and turns each difference into a recorded decision.",
 };

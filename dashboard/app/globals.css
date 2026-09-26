@@ -53,3 +53,9 @@ body {
   .fade-in { animation: fade 240ms ease-out; }
   @keyframes fade { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
 }
+
+@media print {
+  .no-print { display: none !important; }
+  html, body { background: #fff; }
+  .print-sheet { border: none !important; padding: 0 !important; }
+}
