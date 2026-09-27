@@ -1,0 +1,77 @@
+{
+  "program": "interest",
+  "entries": {
+    "O-FEE:sign-loss": {
+      "decision": "preserve",
+      "rationale": "User wants legacy unsigned behaviour: negative FEE silently drops its sign.",
+      "decidedAt": "2026-09-27T11:06:28.184Z",
+      "decidedBy": "User"
+    },
+    "O-FEE:sign-loss+truncation": {
+      "decision": "preserve",
+      "rationale": "User wants legacy behaviour: FEE drops sign and truncates high-order digits on overflow.",
+      "decidedAt": "2026-09-27T11:06:30.391Z",
+      "decidedBy": "User"
+    },
+    "O-INT:high-order-truncation": {
+      "decision": "preserve",
+      "rationale": "User wants legacy behaviour: INTEREST silently truncates high-order digits on overflow.",
+      "decidedAt": "2026-09-27T11:06:32.643Z",
+      "decidedBy": "User"
+    },
+    "O-FEE:rounding": {
+      "decision": "preserve",
+      "rationale": "User wants legacy intermediate-precision truncation reproduced exactly for FEE.",
+      "decidedAt": "2026-09-27T11:06:35.508Z",
+      "decidedBy": "User"
+    },
+    "O-NEW:sign-loss": {
+      "decision": "accept",
+      "rationale": "User accepts modern behaviour: negative NEW-BAL prints with its sign rather than silently becoming positive.",
+      "decidedAt": "2026-09-27T11:06:38.123Z",
+      "decidedBy": "User"
+    },
+    "O-NEW:sign-loss+truncation": {
+      "decision": "accept",
+      "rationale": "User accepts modern behaviour: NEW-BAL shows sign and full value rather than silently truncating and dropping sign.",
+      "decidedAt": "2026-09-27T11:06:40.702Z",
+      "decidedBy": "User"
+    },
+    "O-NEW:high-order-truncation": {
+      "decision": "accept",
+      "rationale": "User accepts modern behaviour: NEW-BAL shows the full value rather than silently truncating high-order digits.",
+      "decidedAt": "2026-09-27T11:06:43.091Z",
+      "decidedBy": "User"
+    },
+    "BALANCE:input-overflow": {
+      "decision": "accept",
+      "rationale": "User accepts modern behaviour: full BALANCE value is used rather than silently truncating on input.",
+      "decidedAt": "2026-09-27T11:06:45.907Z",
+      "decidedBy": "User"
+    },
+    "RATE:input-overflow": {
+      "decision": "accept",
+      "rationale": "User accepts modern behaviour: full RATE value is used rather than silently truncating on input.",
+      "decidedAt": "2026-09-27T11:06:48.112Z",
+      "decidedBy": "User"
+    },
+    "DAYS:input-overflow": {
+      "decision": "accept",
+      "rationale": "User accepts modern behaviour: full DAYS value is used rather than silently truncating on input.",
+      "decidedAt": "2026-09-27T11:06:51.330Z",
+      "decidedBy": "User"
+    },
+    "RATE:input-sign-loss": {
+      "decision": "accept",
+      "rationale": "User accepts modern behaviour: negative RATE is used as-is rather than silently becoming positive.",
+      "decidedAt": "2026-09-27T11:06:53.608Z",
+      "decidedBy": "User"
+    },
+    "DAYS:input-sign-loss": {
+      "decision": "accept",
+      "rationale": "User accepts modern behaviour: negative DAYS is used as-is rather than silently becoming positive.",
+      "decidedAt": "2026-09-27T11:06:55.911Z",
+      "decidedBy": "User"
+    }
+  }
+}

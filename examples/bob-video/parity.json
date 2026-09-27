@@ -1,0 +1,16 @@
+{
+  "name": "interest",
+  "legacy": { "source": "interest.cbl", "dialect": "ibm" },
+  "modern": {
+    "label": "Java 21 (BigDecimal translation)",
+    "build": "javac -d .parity/build/modern ../../java/Pic.java Interest.java",
+    "run": "java -cp .parity/build/modern Interest"
+  },
+  "inputs": [
+    { "name": "F-TYPE", "values": ["S", "P", "C"] },
+    { "name": "BALANCE" },
+    { "name": "RATE" },
+    { "name": "DAYS" }
+  ],
+  "outputs": ["O-INT", "O-FEE", "O-NEW"]
+}
